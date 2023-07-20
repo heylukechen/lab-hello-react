@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 import "./App.css";
 import icon1 from "./images/icon1.png";
 import icon2 from "./images/icon2.png";
@@ -5,6 +7,7 @@ import icon3 from "./images/icon3.png";
 import icon4 from "./images/icon4.png";
 import logo from "./images/ironhack-logo-xs.png";
 import menu from "./images/menu-top-xs.png";
+
 const mainContent = [
   {
     icon:icon1,
@@ -48,13 +51,11 @@ function App() {
       <div className="content-area">
         {mainContent.map((item) => {
           return (
-            <>
-              <div className="card">
+              <div key={uuidv4()} className="card">
                 <img className="icon" src={item.icon} alt="icon" />
                 <h1>{item.title}</h1>
                 <p>{item.description}</p>
               </div>
-            </>
           );
         })}
       </div>
